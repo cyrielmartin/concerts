@@ -5,15 +5,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ConcertController extends AbstractController
+class AdminController extends AbstractController
 {
     /**
-     * @Route("/", name="concerts")
+     * @Route("/admin", name="admin")
      */
     public function index()
     {
-        return $this->render('concert/index.html.twig', [
-            'controller_name' => 'ConcertController',
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'AdminController',
         ]);
     }
 }
