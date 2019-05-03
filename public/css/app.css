@@ -37,3 +37,9 @@
 .fa-trash-alt {
     color: red;
 }
+
+.small-text {
+    font-size: 0.8rem;
+    color:  #E3674E;
+    font-style: oblique;
+}

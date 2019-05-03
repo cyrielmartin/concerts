@@ -13,7 +13,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EventType extends AbstractType
 {
@@ -37,7 +36,7 @@ class EventType extends AbstractType
                 'class' => Artist::class,
                 'query_builder' => function (ArtistRepository $ar) {
                     return $ar->createQueryBuilder('a')
-                    ->orderBy('a.name', 'ASC');
+                        ->orderBy('a.name', 'ASC');
                 },
                 'choice_label' => 'name',
                 'constraints' => [
@@ -52,7 +51,7 @@ class EventType extends AbstractType
                 'class' => City::class,
                 'query_builder' => function (CityRepository $cr) {
                     return $cr->createQueryBuilder('u')
-                    ->orderBy('u.name', 'ASC');
+                        ->orderBy('u.name', 'ASC');
                 },
                 'choice_label' => 'name',
                 'constraints' => [

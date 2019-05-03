@@ -19,12 +19,26 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+    // Méthode permettant l'affichage des concerts par ordre antéchronologique
     public function showEventOrderDateDesc()
     {
         return $this
-        ->createQueryBuilder('events')
-        ->orderBy('events.date', 'DESC')
-        ->getQuery()
-        ->getResult();
+            ->createQueryBuilder('events')
+            ->orderBy('events.date', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    // Méthode permettant l'affichage par défaut des concerts : trois prochains mois uniquement, ordre chronologique
+    public function showEventsLastThreeMonths()
+    {
+        return $this
+            ->createQueryBuilder('events')
+            ->andWhere('events.date > :olderThan')
+            ->setParameter('olderThan', new \DateTime)
+            ->andWhere('events.date < :youngerThan')
+            ->setParameter('youngerThan', new \DateTime('3 months'))
+            ->getQuery()
+            ->getResult();
     }
 }

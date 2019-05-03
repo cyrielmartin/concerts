@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{# Template gérant la hompepage "publique" du site : moteur de recherche des concerts #}
+
 {% block title %}Concerts! Recherche
 {% endblock %}
 
@@ -28,6 +30,41 @@
         <div class="row justify-content-center">
             <h2 class="subtitle">Le site qui part en live!</h2>
         </div>
-    </div>
 
+        {# Affichage formulaire filtres recherche #}
+        <div class="row justify-content-center mt-4">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{form_widget(form)}}
+        <button class="btn btn-secondary" type="submit">Chercher un concert !
+        </button>
+        {{form_end(form)}}
+        </div>
+        <div class="row justify-content-center mt-4">
+        <a href="{{path('concerts')}}"><button class="btn btn-secondary" type="submit"><i class="fas fa-undo-alt"></i>
+        </button></a>
+        </div>
+
+        {# Affichage tableau concerts #}
+        <div class="row justify-content-center">
+                <div class="small-text mt-5">Par défaut, seuls les concerts des trois mois à venir sont affichés</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Artiste</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for concert in concerts %}
+                        <tr>
+                            <td>{{concert.date|date('d/m/Y')}}</td>
+                            <td>{{concert.city.name}}</td>
+                            <td>{{concert.artist.name}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
 {% endblock %}
