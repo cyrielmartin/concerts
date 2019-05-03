@@ -1,3 +1,4 @@
+/* Logo */
 .navbar-brand {
     font-size: 3rem;
     font-weight: bold;
@@ -7,6 +8,7 @@
     font-style: oblique;
 }
 
+/* Sous-titre logo */
 .brand-subtitle {
     font-size: 1.1rem;
     font-style: oblique;
@@ -15,15 +17,23 @@
     margin-left: -11rem;
 }
 
+/* Liens navbar */
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: .5rem;
-    padding-left: 1.5rem;
+    padding-left: 3rem;
+    font-size: 1.2rem;
 }
 
+/* Sous-titre body */
 .subtitle {
     font-size: 1.1rem;
     color: #E3674E;
     font-style: oblique;
     letter-spacing:-0.05rem;
     margin-top: -1.3rem;
+}
+
+/* Logo poubelle/supprimer */
+.fa-trash-alt {
+    color: red;
 }

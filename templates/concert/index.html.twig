@@ -3,30 +3,21 @@
 {% block title %}Concerts! Recherche
 {% endblock %}
 
+
+{# Partie "dynamique" de la navbar, permettant d'afficher l'onglet actif #}
+{% block navbar %}
+
+    <li class="nav-item active">
+        <a class="nav-link" href="{{path('concerts')}}">Recherche<span class="sr-only">(current)</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{path('concert_admin_show')}}">Admin</a>
+    </li>
+
+{% endblock %}
+
 {% block body %}
-
-    {# Navbar page principale #}
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E3674E;">
-        <a class="navbar-brand" href="{{path('concerts')}}">
-            <img src="{{ asset('docs/assets/concert.png') }}" width="50" height="50" class="d-none d-sm-inline pr-1" />
-            Concerts !</a>
-        <div class="brand-subtitle">Le site qui part en live!</div>
-        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{path('concerts')}}">Recherche<span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{path('admin')}}">Admin</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
 
     <div class="container">
         <div class="row justify-content-center">
@@ -38,4 +29,5 @@
             <h2 class="subtitle">Le site qui part en live!</h2>
         </div>
     </div>
+
 {% endblock %}
