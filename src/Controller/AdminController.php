@@ -23,8 +23,8 @@ class AdminController extends AbstractController
      */
     public function show(EventRepository $eventRepository)
     {
-        // Requête dédiée QueryBuilder pour afficher les concerts par ordre antéchronologique
-        $concerts = $eventRepository->showEventOrderDateDesc();
+        // Requête dédiée QueryBuilder pour afficher les concerts par ordre chronologique
+        $concerts = $eventRepository->showEventOrderDateAsc();
 
         return $this->render('admin/index.html.twig', [
             'concerts' => $concerts,
@@ -105,6 +105,12 @@ class AdminController extends AbstractController
 
         $em->remove($event);
         $em->flush();
+
+        // Génération d'un flash message à la suppression d'un concert
+        $this->addFlash(
+            'success',
+            'Le concert a bien été supprimé'
+        );
 
         // Pas de template associé à la suppression
         return $this->redirectToRoute('concert_admin_show');

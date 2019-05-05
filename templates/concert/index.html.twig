@@ -21,6 +21,7 @@
 
 {% block body %}
 
+    {# Logo page d'accueil #}
     <div class="container">
         <div class="row justify-content-center">
             <h1>Bienvenue sur
@@ -31,22 +32,45 @@
             <h2 class="subtitle">Le site qui part en live!</h2>
         </div>
 
-        {# Affichage formulaire filtres recherche #}
+        {# Formulaire recherche par artiste #}
         <div class="row justify-content-center mt-4">
-        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        {{form_widget(form)}}
-        <button class="btn btn-secondary" type="submit">Chercher un concert !
-        </button>
-        {{form_end(form)}}
+            <div class="form-row">
+                <div class="col">
+                    {{ form_start(formArtist, {'attr': {'novalidate': 'novalidate'}}) }}
+                    {{form_widget(formArtist)}}
+                </div>
+                <div class="col">
+                    <button class="btn btn-secondary" type="submit">Chercher par artiste</button>
+                    {{form_end(formArtist)}}
+                </div>
+            </div>
         </div>
+
+        {# Formulaire recherche par ville #}
         <div class="row justify-content-center mt-4">
-        <a href="{{path('concerts')}}"><button class="btn btn-secondary" type="submit"><i class="fas fa-undo-alt"></i>
-        </button></a>
+            <div class="form-row">
+                <div class="col">
+                    {{ form_start(formCity, {'attr': {'novalidate': 'novalidate'}}) }}
+                    {{form_widget(formCity)}}
+                </div>
+                <div class="col">
+                    <button class="btn btn-secondary" type="submit">Chercher par ville</button>
+                    {{form_end(formCity)}}
+                </div>
+            </div>
+        </div>
+        
+        {# Bouton réinitialisation de la recherche #}
+        <div class="row justify-content-center mt-2 mb-4">
+            <a href="{{path('concerts')}}">
+                <button class="btn btn-secondary" type="submit">
+                    <i class="fas fa-undo-alt"></i>
+                </button>
+            </a>
         </div>
 
         {# Affichage tableau concerts #}
         <div class="row justify-content-center">
-                <div class="small-text mt-5">Par défaut, seuls les concerts des trois mois à venir sont affichés</div>
             <table class="table">
                 <thead>
                     <tr>
@@ -66,5 +90,5 @@
                 </tbody>
             </table>
         </div>
-        </div>
+    </div>
 {% endblock %}

@@ -31,6 +31,7 @@ class Event
      */
     private $city;
 
+
     public function getId(): ?int
     {
         return $this->id;

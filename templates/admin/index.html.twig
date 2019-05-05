@@ -5,7 +5,6 @@
 
 {# Partie "dynamique" de la navbar, permettant d'afficher l'onglet actif #}
 {% block navbar %}
-
     <li class="nav-item">
         <a class="nav-link" href="{{path('concerts')}}">Recherche<span class="sr-only">(current)</span>
         </a>
@@ -13,7 +12,6 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{path('concert_admin_show')}}">Admin</a>
     </li>
-
 {% endblock %}
 
 {% block body %}
@@ -27,13 +25,15 @@
         {% endfor %}
     </div>
 
-    {# Corps de la page #}
+    {# Logo accueil page admin #}
     <div class="container">
         <div class="row justify-content-center">
             <h1>Administration
                 <div class="navbar-brand">Concerts!</div>
             </h1>
         </div>
+
+        {# Bouton ajout concert #}
         <div class="row justify-content-center">
             <a href="{{path('concert_admin_new')}}">
                 <button class="btn btn-outline-success mb-4" type="button">Ajouter un concert
@@ -41,7 +41,8 @@
                 </button>
             </a>
         </div>
-        {# Affichage tableau concerts #}
+
+        {# Tableau concerts #}
         <div class="row justify-content-center">
             <table class="table">
                 <thead>
